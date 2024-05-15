@@ -10,7 +10,7 @@
                         <div class="px-6 py-4 flex-grow">
                             <h2 class="text-2xl text-gray-700 font-bold"> {{ $post->titre }} </h2>
                             <p class="mt-2 text-gray-600"> {{ Str::limit($post->contenu, 150) }}
-                                <a href="" class="text-blue-500 hover:underline">Read more</a>
+                                <a href="/show/{{ $post->id }}" class="text-blue-500 hover:underline">Read more</a>
                             </p>
                         </div>
                         <div class="px-6 py-4  mt-auto">

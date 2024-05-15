@@ -31,6 +31,44 @@ class BlogController extends Controller
 
         return redirect('/');
     }
+    public function show($id){
+        $post = Post::find($id);
+
+        return view('guest.show', compact('post'));
+    }
+
+    public function edit($id)
+{
+    $post = Post::find($id);
+
+    return view('users.edit', compact('post'));
+}
+
+public function update(Request $request, $id)
+{
+    $post = Post::find($id);
+
+    $updatedpost = $request->validate([
+        'titre' => 'required',
+        'contenu' => 'required',
+    ]);
+
+    $post->fill($updatedpost);
+
+    $post->update();
+
+    return redirect('/dashboard')->with('success', 'Post updated successfully');
+}
+public function destroy($id)
+{
+    $post = Post::find($id);
+
+    $post->delete();
+
+    return redirect('/dashboard')->with('success', 'Post deleted successfully');
+}
+
+
     function dashboard() {
         $posts = Post::where('user_id' , auth()->id())->get();
 

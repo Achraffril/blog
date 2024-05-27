@@ -1,11 +1,11 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\blogController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [blogController::class, 'index']);
-Route::get('/show/{id}', [blogController::class, 'show']);
+Route::get('/', [PostController::class, 'index']);
+Route::get('/show/{id}', [PostController::class, 'show']);
 
 
 
@@ -20,12 +20,12 @@ Route::post('/sign/store', [AuthController::class , 'store']);
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', [BlogController::class, 'dashboard']);
-    Route::get('/post/create', [blogController::class , 'create']);
-    Route::post('/post/store', [blogController::class , 'store']);
-    Route::get('/post/edit/{id}', [blogController::class , 'edit']);
-    Route::post('/post/update/{id}', [blogController::class , 'update']);
-    Route::get('/post/delete/{id}', [blogController::class , 'destroy']);
+    Route::get('/dashboard', [PostController::class, 'dashboard']);
+    Route::get('/post/create', [PostController::class , 'create']);
+    Route::post('/post/store', [PostController::class , 'store']);
+    Route::get('/post/edit/{id}', [PostController::class , 'edit']);
+    Route::post('/post/update/{id}', [PostController::class , 'update']);
+    Route::get('/post/delete/{id}', [PostController::class , 'destroy']);
 });
 
 

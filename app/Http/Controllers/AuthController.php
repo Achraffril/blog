@@ -11,11 +11,11 @@ use Illuminate\Support\Facades\Session;
 class AuthController extends Controller
 {
     public function index(){
-        return view('guest.login');
+        return view('navigateur.login');
     }
 
     public function create(){
-        return view('guest.sign');
+        return view('navigateur.sign');
     }
 
     public function store(Request $request){
@@ -48,12 +48,11 @@ class AuthController extends Controller
         'login' => 'Your email or password is incorrect',
     ])->onlyInput('email');
 }
-public function logout()
-{
-    Session::flush();
+    public function logout(){
+        Session::flush();
 
-    Auth::logout();
+        Auth::logout();
 
-    return redirect('/login');
-}
-}
+        return redirect('/login');
+    }
+    }

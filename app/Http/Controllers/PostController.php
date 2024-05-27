@@ -7,12 +7,12 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class BlogController extends Controller
+class PostController extends Controller
 {
     public function index(){
         $posts = Post::all();
 
-        return view('guest.blog' , compact('posts') );
+        return view('navigateur.blog' , compact('posts') );
     }
 
     public function create(){
@@ -34,7 +34,7 @@ class BlogController extends Controller
     public function show($id){
         $post = Post::find($id);
 
-        return view('guest.show', compact('post'));
+        return view('navigateur.show', compact('post'));
     }
 
     public function edit($id)

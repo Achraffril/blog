@@ -1,6 +1,7 @@
-@extends('layout.layout')
+@extends('layout.onlylinks')
 
 @section('content')
+@include('components.header')
 <section class="p-6 rounded-lg">
     <div class="flex items-center space-x-4">
         <div>
